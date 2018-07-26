@@ -1,9 +1,46 @@
-[![Build Status](https://travis-ci.org/sqshq/PiggyMetrics.svg?branch=master)](https://travis-ci.org/sqshq/PiggyMetrics)
-[![codecov.io](https://codecov.io/github/sqshq/PiggyMetrics/coverage.svg?branch=master)](https://codecov.io/github/sqshq/PiggyMetrics?branch=master)
-[![GitHub license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/sqshq/PiggyMetrics/blob/master/LICENCE)
-[![Join the chat at https://gitter.im/sqshq/PiggyMetrics](https://badges.gitter.im/sqshq/PiggyMetrics.svg)](https://gitter.im/sqshq/PiggyMetrics?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+# 活动管理系统后端（CMS）
 
-# Piggy Metrics
+## 项目介绍
+
+```
+功能点：
+    集成微信等第三方，管理优惠券的发放以及统计优惠券的使用情况，达到精准市场营销的目的。
+技术点：
+    Web服务器：Tomcat 8
+    JDK版本：JDK 8
+	核心框架：springcloud 全家桶
+	安全框架：Spring Security Spring Cloud Oauth2
+	消息队列：RabbitMQ（spring-boot-starter-amqp）
+	持久层框架：MyBatis（mybaits-spring-boot-starter）
+	缓存：Redis（spring-boot-starter-data-redis）
+	数据库：MYSQL
+	数据库连接池：Alibaba Druid
+	日志管理：Logback（spring-boot-starter-log4j2）
+	前端框架：RSuite以及相关组件
+	三方服务：微信API
+```
+
+## 编码规范
+
+```
+    Google Java Style Guide
+```
+
+## 工程目录结构说明
+```
+├─cms------------------------------------------父项目，公共依赖
+│  │
+│  ├─campaign-service--------------------------活动管理服务
+│  │
+│  ├─member-service----------------------------客户管理服务
+│  │
+│  ├─system-service----------------------------系统设置服务
+│  │
+│  ├─wechat-service----------------------------微信管理服务
+```
+
+
+
 
 **A simple way to deal with personal finances**
 
