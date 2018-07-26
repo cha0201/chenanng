@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: cms-core-config
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/config
+  profiles:
+     active: native
+
+server:
+  port: 8130
+
+security:
+  user:
+    password: 123456
+

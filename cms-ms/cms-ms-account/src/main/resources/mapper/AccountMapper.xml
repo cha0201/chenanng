@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.system.yunjie.cms.ms.account.mapper.AccountMapper">
+    <resultMap id="BaseResultMap" type="com.system.yunjie.cms.ms.account.entity.Account">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="note" jdbcType="VARCHAR" property="note"/>
+        <result column="last_seen" jdbcType="VARCHAR" property="lastSeen"/>
+        <association property="saving" javaType="com.system.yunjie.cms.ms.account.entity.Saving">
+            <id column="id" jdbcType="BIGINT" property="id"/>
+            <result column="amount" jdbcType="DECIMAL" property="amount"/>
+            <result column="currency" jdbcType="VARCHAR" property="currency"/>
+            <result column="interest" jdbcType="DECIMAL" property="interest"/>
+            <result column="deposit" jdbcType="TINYINT" property="deposit"/>
+            <result column="capitalization" jdbcType="TINYINT" property="capitalization"/>
+        </association>
+        <collection property="incomes" ofType="com.system.yunjie.cms.ms.account.entity.Item">
+            <id column="id" jdbcType="BIGINT" property="id"/>
+            <result column="title" jdbcType="VARCHAR" property="title"/>
+            <result column="amount" jdbcType="DECIMAL" property="amount"/>
+            <result column="currency" jdbcType="VARCHAR" property="currency"/>
+            <result column="period" jdbcType="VARCHAR" property="period"/>
+            <result column="icon" jdbcType="VARCHAR" property="icon"/>
+        </collection>
+        <collection property="expenses" ofType="com.system.yunjie.cms.ms.account.entity.Item">
+            <id column="id" jdbcType="BIGINT" property="id"/>
+            <result column="title" jdbcType="VARCHAR" property="title"/>
+            <result column="amount" jdbcType="DECIMAL" property="amount"/>
+            <result column="currency" jdbcType="VARCHAR" property="currency"/>
+            <result column="period" jdbcType="VARCHAR" property="period"/>
+            <result column="icon" jdbcType="VARCHAR" property="icon"/>
+        </collection>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, account_name, note, last_seen
+    </sql>
+    <select id="selectByAccountName" parameterType="string" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_account
+        where account_name=#{accountName}
+    </select>
+
+    <insert id="insert" parameterType="com.system.yunjie.cms.ms.account.entity.Account">
+        <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        insert into t_account (account_name, note, last_seen)
+        values (#{account_name,jdbcType=VARCHAR}, #{note,jdbcType=VARCHAR}, #{last_seen,jdbcType=DATE})
+    </insert>
+</mapper>

@@ -1,0 +1,20 @@
+spring:
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/ms-statistics?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&serverTimezone=UTC
+    username: statistics
+    password: statistics
+
+server:
+  port: 9140
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:8110/eureka/
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+

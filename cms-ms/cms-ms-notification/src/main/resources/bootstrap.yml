@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: cms-ms-notification
+  cloud:
+    config:
+      uri: http://localhost:8130
+      fail-fast: true
+      password: 123456
+      username: user

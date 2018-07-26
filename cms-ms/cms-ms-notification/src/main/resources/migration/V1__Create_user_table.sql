@@ -1,0 +1,7 @@
+CREATE TABLE t_user (
+  `id` BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '用户主键',
+  `username` VARCHAR(100) NOT NULL COMMENT '用户名',
+  `password` VARCHAR(100) NOT NULL COMMENT '用户密码',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `idx_username`(`username`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET='utf8' COMMENT='用户表'
